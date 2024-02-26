@@ -34,11 +34,11 @@ class OneCallData {
                 ?.map((e) => DailyItem.fromJson(e as Map<String, dynamic>))
                 .toList() ??
             [],
-        hourly: (json['hourly'] as List<dynamic>?)
+        hourly: (json['hourly'] as List?)
                 ?.map((e) => HourlyItem.fromJson(e as Map<String, dynamic>))
                 .toList() ??
             [],
-        minutely: (json['minutely'] as List<dynamic>?)
+        minutely: (json['minutely'] as List?)
                 ?.map((e) => MinutelyItem.fromJson(e as Map<String, dynamic>))
                 .toList() ??
             [],

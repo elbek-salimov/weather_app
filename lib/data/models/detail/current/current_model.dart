@@ -33,24 +33,26 @@ class Weather {
 
   factory Weather.fromJson(Map<String, dynamic> json) {
     return Weather(
-      dt: json['dt'],
-      sunrise: json['sunrise'],
-      sunset: json['sunset'],
-      temp: json['temp'],
-      feelsLike: json['feels_like'],
-      pressure: json['pressure'],
-      humidity: json['humidity'],
-      dewPoint: json['dew_point'],
-      uvi: json['uvi'],
+      dt: json['dt'] as int? ?? 0,
+      sunrise: json['sunrise'] as int? ?? 0,
+      sunset: json['sunset'] as int? ?? 0,
+      temp: json['temp'] as double? ?? 0.0,
+      feelsLike: json['feels_like'] as double? ?? 0.0,
+      pressure: json['pressure'] as int? ?? 0,
+      humidity: json['humidity'] as int? ?? 0,
+      dewPoint: json['dew_point'] as double? ?? 0,
+      uvi: (json['uvi'] as num? ?? 0.0).toDouble(),
       clouds: json['clouds'],
       visibility: json['visibility'],
       windSpeed: json['wind_speed'],
       windDeg: json['wind_deg'],
-      weather: (json['weather'] as List<dynamic>)
-          .map((e) => WeatherCondition.fromJson(e))
-          .toList(),
+      weather: (json['weather'] as List?)
+              ?.map((e) => WeatherCondition.fromJson(e))
+              .toList() ??
+          [],
     );
   }
+
   @override
   String toString() {
     return '''
@@ -93,6 +95,7 @@ class WeatherCondition {
       icon: json['icon'],
     );
   }
+
   @override
   String toString() {
     return '''

@@ -205,6 +205,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             );
                           }
                           if (snapshot.hasData) {
+                            print((snapshot.data as MyResponse).errorText);
                             oneCallData = (snapshot.data as MyResponse).data
                                 as OneCallData;
                             return CarouselSlider(

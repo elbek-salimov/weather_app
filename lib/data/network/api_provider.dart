@@ -37,7 +37,6 @@ class ApiProvider {
     Map<String, String> queryParams = {
       "lat": "41.2646",
       "lon": "69.2163",
-      "exclude": "minutely,current",
       "appid": AppConstants.complexApiKey,
       "units": "metric",
     };
